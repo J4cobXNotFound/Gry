@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Geometry Dash 2.0</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="app">
+
+  <header>
+    <div class="logo">GEOMETRY <span>DASH</span></div>
+    <div class="version">UNOFFICIAL 2.0</div>
+  </header>
+
+  <main>
+    <section id="menu" class="screen active">
+      <h1>GEOMETRY<br><span>DASH</span></h1>
+      <p class="subtitle">THE RHYTHM IS CALLING</p>
+
+      <button class="main-btn" onclick="showScreen('levels')">▶ GRAJ</button>
+      <button onclick="showScreen('skins')">🎨 SKÓRKI</button>
+      <button onclick="toggleMusic()">♫ MUZYKA: <span id="musicLabel">ON</span></button>
+
+      <div class="stats">
+        <span>🏆 Rekord: <b id="bestMenu">0%</b></span>
+        <span>🎮 Próby: <b id="attemptMenu">0</b></span>
+      </div>
+    </section>
+
+    <section id="levels" class="screen">
+      <h2>WYBIERZ POZIOM</h2>
+      <div id="levelList"></div>
+      <button onclick="showScreen('menu')">← POWRÓT</button>
+    </section>
+
+    <section id="skins" class="screen">
+      <h2>WYBIERZ KOSTKĘ</h2>
+      <div class="skin-preview" id="skinPreview"></div>
+      <div id="skinList"></div>
+      <button onclick="showScreen('menu')">← POWRÓT</button>
+    </section>
+
+    <section id="gameScreen" class="screen">
+      <div class="game-hud">
+        <button onclick="pauseGame()">Ⅱ</button>
+        <div class="progress-wrap">
+          <div id="progressBar"></div>
+        </div>
+        <span id="progressText">0%</span>
+      </div>
+
+      <canvas id="game" width="960" height="480"></canvas>
+
+      <div class="game-info">
+        <span>POZIOM: <b id="levelName">Stereo Madness</b></span>
+        <span>PRÓBA: <b id="attempts">1</b></span>
+      </div>
+
+      <div id="gameOverlay" class="game-overlay hidden">
+        <h2 id="overlayTitle">PAUZA</h2>
+        <p id="overlayText">Gra została zatrzymana</p>
+        <button id="resumeButton" onclick="resumeGame()">KONTYNUUJ</button>
+        <button onclick="showScreen('levels')">MENU POZIOMÓW</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>GEOMETRY DASH FAN GAME • 2026</footer>
+</div>
+
+<script src="game.js"></script>
+</body>
+</html>
